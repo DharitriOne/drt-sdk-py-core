@@ -65,7 +65,7 @@ class TestTransaction:
         )
 
         transaction.signature = self.carol.secret_key.sign(self.transaction_computer.compute_bytes_for_signing(transaction))
-        assert transaction.signature.hex() == "51e6cd78fb3ab4b53ff7ad6864df27cb4a56d70603332869d47a5cf6ea977c30e696103e41e8dddf2582996ad335229fdf4acb726564dbc1a0bc9e705b511f06"
+        assert transaction.signature.hex() == "3f3f645f9ac38142c1087a76b855e48ed0aa44185146df5f3317b8887e7b59f195d6093d3c2b30fb693a27e3175a199ef04a6e650101ab3f4b3649f0fe2f5204"
 
     def test_compute_transaction_hash(self):
         transaction = Transaction(
@@ -157,10 +157,10 @@ class TestTransaction:
         )
 
         transaction.signature = sender_secret_key.sign(self.transaction_computer.compute_bytes_for_signing(transaction))
-        assert transaction.signature.hex() == "51434089b93d34ce5dfe9f7c8aa764e5654ed36ee9c54d465ce87d4399d71cf0745ca6c9c680727cf2788a5efbfebdbeececfa7b7497186c64975b7e6eb9f808"
+        assert transaction.signature.hex() == "b77c33efa5cd196245049ecbe176afa4b293027552e0ed9dead3e2b1eb1c0f8a749351a5eb1b398ec09b30da6ec0c81ab833dbd188482490bb046a78133ca808"
 
         tx_hash = self.transaction_computer.compute_transaction_hash(transaction)
-        assert tx_hash.hex() == "14a1ea3b73212efdcf4e66543b5e089437e72b8b069330312a0975f31e6c8a93"
+        assert tx_hash.hex() == "010347ada2669f563ad5c6d339afb5ccdb4cf299aee8af9ec7acca24acd006cf"
 
     # this test was done to mimic the one in drt-chain-go
     def test_compute_transaction_with_dummy_guardian(self):
@@ -183,14 +183,14 @@ class TestTransaction:
         )
 
         transaction.signature = alice_secret_key.sign(self.transaction_computer.compute_bytes_for_signing(transaction))
-        assert transaction.signature.hex() == "e574d78b19e1481a6b9575c162e66f2f906a3178aec537509356385c4f1a5330a9b73a87a456fc6d7041e93b5f8a1231a92fb390174872a104a0929215600c0c"
+        assert transaction.signature.hex() == "c74c3e5b276c32ae72ab1a0bac17939d7577e55e1467cd3b4d4a45b04ad3957e94a855657b42601384819502882d559dd5f8e31a93097e113fe9fa8261515104"
 
         proto_serializer = ProtoSerializer()
         serialized = proto_serializer.serialize_transaction(transaction)
-        assert serialized.hex() == "085c120e00018ee90ff6181f3761632000001a208049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f82a200139472eff6886771a982f3083da5d421f24c29181e63888228dc81ca60d69e1388094ebdc0340f093094a0f746573742064617461206669656c64520d6c6f63616c2d746573746e657458026240e574d78b19e1481a6b9575c162e66f2f906a3178aec537509356385c4f1a5330a9b73a87a456fc6d7041e93b5f8a1231a92fb390174872a104a0929215600c0c6802722032a3f14cf53c4d0543954f6cf1bda0369d13e661dec095107627dc0f6d33612f7a4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        assert serialized.hex() == "085c120e00018ee90ff6181f3761632000001a208049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f82a200139472eff6886771a982f3083da5d421f24c29181e63888228dc81ca60d69e1388094ebdc0340f093094a0f746573742064617461206669656c64520d6c6f63616c2d746573746e657458026240c74c3e5b276c32ae72ab1a0bac17939d7577e55e1467cd3b4d4a45b04ad3957e94a855657b42601384819502882d559dd5f8e31a93097e113fe9fa82615151046802722032a3f14cf53c4d0543954f6cf1bda0369d13e661dec095107627dc0f6d33612f7a4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
         tx_hash = self.transaction_computer.compute_transaction_hash(transaction)
-        assert tx_hash.hex() == "242022e9dcfa0ee1d8199b0043314dbda8601619f70069ebc441b9f03349a35c"
+        assert tx_hash.hex() == "0896751a0c0eb3316041295ae1d71a4200aef5b359609b0cc181cae4e22b531e"
 
     def test_sign_transaction_by_hash(self):
         tx = Transaction(
@@ -206,4 +206,4 @@ class TestTransaction:
         serialized = self.transaction_computer.compute_hash_for_signing(tx)
         tx.signature = self.alice.secret_key.sign(serialized)
 
-        assert tx.signature.hex() == "f0c81f2393b1ec5972c813f817bae8daa00ade91c6f75ea604ab6a4d2797aca4378d783023ff98f1a02717fe4f24240cdfba0b674ee9abb18042203d713bc70a"
+        assert tx.signature.hex() == "e55e641a75b4357269bb576ec597aac8ef9650c8d37a75d4fc6c67ef78703e9dc8de17dca8a3b207610e202a3faea80f92f6e5b7b95d4fb91136d97c9167dc08"
