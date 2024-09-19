@@ -36,7 +36,7 @@ class TestRelayedV2Builder:
         inner_tx = Transaction(
             chain_id=network_config.chain_id,
             sender=self.alice.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=10,
             nonce=15,
             data=b"getContractConfig"
@@ -58,7 +58,7 @@ class TestRelayedV2Builder:
         inner_tx = Transaction(
             chain_id=network_config.chain_id,
             sender=self.bob.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=0,
             nonce=15,
             data=b"getContractConfig"

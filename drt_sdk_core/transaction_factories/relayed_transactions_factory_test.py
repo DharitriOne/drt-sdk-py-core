@@ -21,7 +21,7 @@ class TestRelayedTransactionsFactory:
 
         inner_transaction = Transaction(
             sender=alice.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=10000000,
             data="getContractConfig".encode(),
             chain_id=self.config.chain_id
@@ -48,7 +48,7 @@ class TestRelayedTransactionsFactory:
 
         inner_transaction = Transaction(
             sender=bob.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=60000000,
             chain_id=self.config.chain_id,
             data=b"getContractConfig",
@@ -108,7 +108,7 @@ class TestRelayedTransactionsFactory:
 
         inner_transaction = Transaction(
             sender=bob.label,
-            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q83gnnz",
+            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q2fwu0j",
             gas_limit=60000000,
             chain_id=self.config.chain_id,
             data=b"getContractConfig",
@@ -142,7 +142,7 @@ class TestRelayedTransactionsFactory:
 
         inner_transaction = Transaction(
             sender=bob.label,
-            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q83gnnz",
+            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q2fwu0j",
             gas_limit=60000000,
             chain_id=self.config.chain_id,
             data=b"addNumber",
@@ -204,7 +204,7 @@ class TestRelayedTransactionsFactory:
 
         inner_transaction = Transaction(
             sender=bob.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=0,
             chain_id=self.config.chain_id,
             data=b"getContractConfig",

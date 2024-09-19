@@ -14,7 +14,7 @@ class TestSmartContractTransactionsFactory:
     factory = SmartContractTransactionsFactory(config, TokenComputer())
 
     def test_create_transaction_for_deploy(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
         contract = Path(__file__).parent.parent / "testutils" / "testdata" / "adder.wasm"
         gas_limit = 6000000
         args = [0]
@@ -26,15 +26,15 @@ class TestSmartContractTransactionsFactory:
             arguments=args
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
         assert transaction.receiver == CONTRACT_DEPLOY_ADDRESS
         assert transaction.data
         assert transaction.gas_limit == gas_limit
         assert transaction.value == 0
 
     def test_create_transaction_for_execute_no_transfer(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         function = "add"
         gas_limit = 6000000
         args = [7]
@@ -47,16 +47,16 @@ class TestSmartContractTransactionsFactory:
             arguments=args
         )
 
-        assert intent.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert intent.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4"
+        assert intent.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert intent.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9"
         assert intent.gas_limit == gas_limit
         assert intent.data
         assert intent.data.decode() == "add@07"
         assert intent.value == 0
 
     def test_create_transaction_for_execute_and_tranfer_native_token(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         function = "add"
         gas_limit = 6000000
         args = [7]
@@ -71,16 +71,16 @@ class TestSmartContractTransactionsFactory:
             native_transfer_amount=rewa_amount
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9"
         assert transaction.gas_limit == gas_limit
         assert transaction.data
         assert transaction.data.decode() == "add@07"
         assert transaction.value == 1000000000000000000
 
     def test_create_transaction_for_execute_and_send_single_dcdt(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         function = "dummy"
         gas_limit = 6000000
         args = [7]
@@ -96,16 +96,16 @@ class TestSmartContractTransactionsFactory:
             token_transfers=[transfer]
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9"
         assert transaction.gas_limit == gas_limit
         assert transaction.data
         assert transaction.data.decode() == "DCDTTransfer@464f4f2d366365313762@0a@64756d6d79@07"
         assert transaction.value == 0
 
     def test_create_transaction_for_execute_and_send_multiple_dcdts(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqak8zt22wl2ph4tswtyc39namqx6ysa2sd8ss4xmlj3")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqak8zt22wl2ph4tswtyc39namqx6ysa2sd8ssc7aswp")
         function = "dummy"
         gas_limit = 6000000
         args = [7]
@@ -125,16 +125,16 @@ class TestSmartContractTransactionsFactory:
             token_transfers=[foo_transfer, bar_transfer]
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
         assert transaction.gas_limit == gas_limit
         assert transaction.data
         assert transaction.data.decode() == "MultiDCDTNFTTransfer@00000000000000000500ed8e25a94efa837aae0e593112cfbb01b448755069e1@02@464f4f2d366365313762@@0a@4241522d356263303866@@0c44@64756d6d79@07"
         assert transaction.value == 0
 
     def test_create_transaction_for_execute_and_send_single_nft(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         function = "dummy"
         gas_limit = 6000000
         args = [7]
@@ -150,16 +150,16 @@ class TestSmartContractTransactionsFactory:
             token_transfers=[transfer]
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
         assert transaction.gas_limit == gas_limit
         assert transaction.data
         assert transaction.data.decode() == "DCDTNFTTransfer@4e46542d313233343536@01@01@00000000000000000500b9353fe8407f87310c87e12fa1ac807f0485da39d152@64756d6d79@07"
         assert transaction.value == 0
 
     def test_create_transaction_for_execute_and_send_multiple_nfts(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         function = "dummy"
         gas_limit = 6000000
         args = [7]
@@ -178,16 +178,16 @@ class TestSmartContractTransactionsFactory:
             token_transfers=[first_transfer, second_transfer]
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
         assert transaction.gas_limit == gas_limit
         assert transaction.data
         assert transaction.data.decode() == "MultiDCDTNFTTransfer@00000000000000000500b9353fe8407f87310c87e12fa1ac807f0485da39d152@02@4e46542d313233343536@01@01@4e46542d313233343536@2a@01@64756d6d79@07"
         assert transaction.value == 0
 
     def test_create_transaction_for_upgrade(self):
-        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-        contract_address = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4")
+        sender = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+        contract_address = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9")
         contract = Path(__file__).parent.parent / "testutils" / "testdata" / "adder.wasm"
         gas_limit = 6000000
         args = [0]
@@ -200,8 +200,8 @@ class TestSmartContractTransactionsFactory:
             arguments=args
         )
 
-        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
-        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fqgtz9l4"
+        assert transaction.sender == "moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8"
+        assert transaction.receiver == "moa1qqqqqqqqqqqqqpgqhy6nl6zq07rnzry8uyh6rtyq0uzgtk3e69fq9ny2r9"
         assert transaction.data
         assert transaction.data.decode().startswith("upgradeContract@")
         assert transaction.gas_limit == gas_limit

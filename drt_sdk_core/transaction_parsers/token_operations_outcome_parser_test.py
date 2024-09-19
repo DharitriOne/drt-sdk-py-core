@@ -9,8 +9,8 @@ from drt_sdk_core.transaction_parsers.transaction_on_network_wrapper import (
     TransactionEventWrapper, TransactionLogsWrapper,
     TransactionOnNetworkWrapper)
 
-frank = Address.new_from_bech32("moa1kdl46yctawygtwg2k462307dmz2v55c605737dp3zkxh04sct7asqylhyv")
-grace = Address.new_from_bech32("moa1r69gk66fmedhhcg24g2c5kn2f2a5k4kvpr6jfw67dn2lyydd8cfswy6ede")
+frank = Address.new_from_bech32("moa1kdl46yctawygtwg2k462307dmz2v55c605737dp3zkxh04sct7asdueccu")
+grace = Address.new_from_bech32("moa1r69gk66fmedhhcg24g2c5kn2f2a5k4kvpr6jfw67dn2lyydd8cfsruuk3f")
 parser = TokenOperationsOutcomeParser(TransactionsFactoryConfig("D"))
 
 

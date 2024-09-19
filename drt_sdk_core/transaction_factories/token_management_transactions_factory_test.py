@@ -4,9 +4,9 @@ from drt_sdk_core.transaction_factories.token_management_transactions_factory im
 from drt_sdk_core.transaction_factories.transactions_factory_config import \
     TransactionsFactoryConfig
 
-frank = Address.new_from_bech32("moa1kdl46yctawygtwg2k462307dmz2v55c605737dp3zkxh04sct7asqylhyv")
-grace = Address.new_from_bech32("moa1r69gk66fmedhhcg24g2c5kn2f2a5k4kvpr6jfw67dn2lyydd8cfswy6ede")
-alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
+frank = Address.new_from_bech32("moa1kdl46yctawygtwg2k462307dmz2v55c605737dp3zkxh04sct7asdueccu")
+grace = Address.new_from_bech32("moa1r69gk66fmedhhcg24g2c5kn2f2a5k4kvpr6jfw67dn2lyydd8cfsruuk3f")
+alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
 factory = TokenManagementTransactionsFactory(TransactionsFactoryConfig("T"))
 
 
@@ -22,7 +22,7 @@ def test_create_transaction_for_registering_and_setting_roles():
     assert transaction.data
     assert transaction.data.decode() == "registerAndSetAllRoles@54455354@54455354@464e47@02"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 50000000000000000
 
 
@@ -44,7 +44,7 @@ def test_create_transaction_for_issuing_fungible():
     assert transaction.data
     assert transaction.data.decode() == "issue@4652414e4b@4652414e4b@64@@63616e467265657a65@74727565@63616e57697065@74727565@63616e5061757365@74727565@63616e4368616e67654f776e6572@74727565@63616e55706772616465@66616c7365@63616e4164645370656369616c526f6c6573@66616c7365"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 50000000000000000
 
 
@@ -65,7 +65,7 @@ def test_create_transaction_for_issuing_semi_fungible():
     assert transaction.data
     assert transaction.data.decode() == "issueSemiFungible@4652414e4b@4652414e4b@63616e467265657a65@74727565@63616e57697065@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565@63616e4368616e67654f776e6572@74727565@63616e55706772616465@66616c7365@63616e4164645370656369616c526f6c6573@66616c7365"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 50000000000000000
 
 
@@ -86,7 +86,7 @@ def test_create_transaction_for_issuing_non_fungible():
     assert transaction.data
     assert transaction.data.decode() == "issueNonFungible@4652414e4b@4652414e4b@63616e467265657a65@74727565@63616e57697065@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565@63616e4368616e67654f776e6572@74727565@63616e55706772616465@66616c7365@63616e4164645370656369616c526f6c6573@66616c7365"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 50000000000000000
 
 
@@ -108,7 +108,7 @@ def test_create_transaction_for_registering_meta_dcdt():
     assert transaction.data
     assert transaction.data.decode() == "registerMetaDCDT@4652414e4b@4652414e4b@0a@63616e467265657a65@74727565@63616e57697065@74727565@63616e5061757365@74727565@63616e5472616e736665724e4654437265617465526f6c65@74727565@63616e4368616e67654f776e6572@74727565@63616e55706772616465@66616c7365@63616e4164645370656369616c526f6c6573@66616c7365"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 50000000000000000
 
 
@@ -127,7 +127,7 @@ def test_create_transaction_for_setting_special_role_on_non_fungible_token():
     assert transaction.data
     assert transaction.data.decode() == "setSpecialRole@4652414e4b2d313163653365@1e8a8b6b49de5b7be10aaa158a5a6a4abb4b56cc08f524bb5e6cd5f211ad3e13@44434454526f6c654e4654437265617465@44434454526f6c654e465455706461746541747472696275746573@44434454526f6c654e4654416464555249"
     assert transaction.sender == frank.to_bech32()
-    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u"
+    assert transaction.receiver == "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv"
     assert transaction.value == 0
 
 

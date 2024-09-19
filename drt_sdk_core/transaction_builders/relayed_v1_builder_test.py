@@ -35,7 +35,7 @@ class TestRelayedV1Builder:
         inner_transaction = Transaction(
             chain_id="1",
             sender=self.alice.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=10000000,
             nonce=15,
             data=b"getContractConfig"
@@ -57,7 +57,7 @@ class TestRelayedV1Builder:
         inner_tx = Transaction(
             chain_id=network_config.chain_id,
             sender=self.bob.label,
-            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u",
+            receiver="moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv",
             gas_limit=60000000,
             nonce=198,
             data=b"getContractConfig"
@@ -83,7 +83,7 @@ class TestRelayedV1Builder:
         inner_tx = Transaction(
             chain_id=network_config.chain_id,
             sender=self.bob.label,
-            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q83gnnz",
+            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q2fwu0j",
             gas_limit=60000000,
             nonce=198,
             data=b"getContractConfig",
@@ -113,7 +113,7 @@ class TestRelayedV1Builder:
         inner_tx = Transaction(
             chain_id=network_config.chain_id,
             sender=self.bob.label,
-            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q83gnnz",
+            receiver="moa1qqqqqqqqqqqqqpgq54tsxmej537z9leghvp69hfu4f8gg5eu396q2fwu0j",
             gas_limit=60000000,
             nonce=198,
             data=b"addNumber",

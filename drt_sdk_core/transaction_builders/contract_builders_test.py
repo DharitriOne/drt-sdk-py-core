@@ -13,7 +13,7 @@ dummyConfig = DefaultTransactionBuildersConfiguration(chain_id="D")
 
 
 def test_contract_deployment_builder():
-    owner = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
+    owner = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
     metadata = CodeMetadata(upgradeable=True, readable=True, payable=True, payable_by_contract=True)
 
     builder = ContractDeploymentBuilder(
@@ -31,15 +31,15 @@ def test_contract_deployment_builder():
     assert payload.data == b"aabbccdd@0500@0506@2a@74657374"
     assert tx.chain_id == "D"
     assert tx.sender == owner.to_bech32()
-    assert tx.receiver == "moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6gq4hu"
+    assert tx.receiver == "moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqhsx6tv"
     assert tx.gas_limit == 10000000
     assert tx.gas_price == 1000000000
     assert tx.data.decode() == str(payload)
 
 
 def test_contract_upgrade_builder():
-    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396qn50nnm")
-    owner = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
+    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396q7vfu0t")
+    owner = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
     metadata = CodeMetadata(upgradeable=True, readable=True, payable=True, payable_by_contract=True)
 
     builder = ContractUpgradeBuilder(
@@ -65,15 +65,15 @@ def test_contract_upgrade_builder():
 
 
 def test_contract_call_builder():
-    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396qn50nnm")
-    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaq6mjse8")
+    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396q7vfu0t")
+    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaqhr5l9h")
 
     builder = ContractCallBuilder(
         dummyConfig,
         contract=contract,
         function_name="foo",
         caller=caller,
-        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")],
+        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")],
         gas_limit=10000000
     )
 
@@ -88,8 +88,8 @@ def test_contract_call_builder():
 
 
 def test_contract_call_builder_with_dcdt_transfer():
-    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396qn50nnm")
-    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaq6mjse8")
+    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396q7vfu0t")
+    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaqhr5l9h")
 
     transfers: List[ITokenPayment] = [
         TokenPayment.fungible_from_amount("COUNTER-8b028f", "100.00", 2)
@@ -100,7 +100,7 @@ def test_contract_call_builder_with_dcdt_transfer():
         contract=contract,
         function_name="hello",
         caller=caller,
-        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")],
+        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")],
         gas_limit=10000000,
         dcdt_transfers=transfers
     )
@@ -115,8 +115,8 @@ def test_contract_call_builder_with_dcdt_transfer():
 
 
 def test_contract_call_builder_with_dcdt_nft_transfer():
-    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396qn50nnm")
-    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaq6mjse8")
+    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396q7vfu0t")
+    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaqhr5l9h")
 
     transfers: List[ITokenPayment] = [
         TokenPayment.non_fungible("TEST-38f249", 1)
@@ -127,7 +127,7 @@ def test_contract_call_builder_with_dcdt_nft_transfer():
         contract=contract,
         function_name="hello",
         caller=caller,
-        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")],
+        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")],
         gas_limit=10000000,
         dcdt_transfers=transfers
     )
@@ -142,8 +142,8 @@ def test_contract_call_builder_with_dcdt_nft_transfer():
 
 
 def test_contract_call_builder_with_multi_dcdt_nft_transfer():
-    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396qn50nnm")
-    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaq6mjse8")
+    contract = Address.new_from_bech32("moa1qqqqqqqqqqqqqpgquzmh78klkqwt0p4rjys0qtp3la07gz4d396q7vfu0t")
+    caller = Address.new_from_bech32("moa1k2s324ww2g0yj38qn2ch2jwctdy8mnfxep94q9arncc6xecg3xaqhr5l9h")
 
     transfers = [
         TokenPayment.non_fungible("TEST-38f249", 1),
@@ -155,7 +155,7 @@ def test_contract_call_builder_with_multi_dcdt_nft_transfer():
         contract=contract,
         function_name="hello",
         caller=caller,
-        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")],
+        call_arguments=[42, "test", Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")],
         gas_limit=10000000,
         dcdt_transfers=transfers
     )

@@ -19,5 +19,5 @@ class DefaultTransactionBuildersConfiguration:
     additional_gas_for_dcdt_transfer = 100000
     additional_gas_for_dcdt_nft_transfer = 800000
 
-    dcdt_contract_address: IAddress = Address.new_from_bech32("moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls8a5w6u")
-    deployment_address: IAddress = Address.new_from_bech32("moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6gq4hu")
+    dcdt_contract_address: IAddress = Address.new_from_bech32("moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzllls29jpxv")
+    deployment_address: IAddress = Address.new_from_bech32("moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqhsx6tv")

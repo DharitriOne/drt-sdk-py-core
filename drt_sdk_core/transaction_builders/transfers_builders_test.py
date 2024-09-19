@@ -11,8 +11,8 @@ dummyConfig = DefaultTransactionBuildersConfiguration(chain_id="D")
 
 
 def test_rewa_transfer_builder():
-    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx")
+    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruq0yu4wk")
     payment = TokenPayment.rewa_from_amount("1.00")
 
     # With "data" field
@@ -52,8 +52,8 @@ def test_rewa_transfer_builder():
 
 
 def test_dcdt_transfer_builder():
-    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx")
+    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruq0yu4wk")
     payment = TokenPayment.fungible_from_amount("COUNTER-8b028f", "100.00", 2)
 
     builder = DCDTTransferBuilder(
@@ -74,8 +74,8 @@ def test_dcdt_transfer_builder():
 
 
 def test_dcdt_nft_transfer_builder():
-    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx")
+    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruq0yu4wk")
     payment = TokenPayment.non_fungible("TEST-38f249", 1)
 
     builder = DCDTNFTTransferBuilder(
@@ -96,8 +96,8 @@ def test_dcdt_nft_transfer_builder():
 
 
 def test_multi_dcdt_nft_transfer_builder():
-    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th")
-    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx")
+    alice = Address.new_from_bech32("moa1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssfq94h8")
+    bob = Address.new_from_bech32("moa1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruq0yu4wk")
 
     payment_one = TokenPayment.non_fungible("TEST-38f249", 1)
     payment_two = TokenPayment.fungible_from_amount("BAR-c80d29", "10.00", 18)

@@ -11,9 +11,9 @@ INTEGER_MAX_NUM_BYTES = 64
 REWA_TOKEN_IDENTIFIER = "REWA"
 REWA_NUM_DECIMALS = 18
 
-DELEGATION_MANAGER_SC_ADDRESS = "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqylllslmq6y6"
+DELEGATION_MANAGER_SC_ADDRESS = "moa1qqqqqqqqqqqqqqqpqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqylllsjrx4c2"
 DEFAULT_HRP = "moa"
-CONTRACT_DEPLOY_ADDRESS = "moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6gq4hu"
+CONTRACT_DEPLOY_ADDRESS = "moa1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqhsx6tv"
 TRANSACTION_OPTIONS_TX_GUARDED = 0b0010
 
 DIGEST_SIZE = 32
